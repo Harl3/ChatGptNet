@@ -8,11 +8,11 @@ var builder = WebAssemblyHostBuilder.CreateDefault(args);
 builder.RootComponents.Add<App>("#app");
 builder.RootComponents.Add<HeadOutlet>("head::after");
 
-builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
+builder.Services.AddScoped(_ => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
 
 builder.Services.AddChatGpt(options =>
 {
-    options.ApiKey = "";
+    options.ApiKey = "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";
     options.DefaultModel = ChatGptModels.Gpt35Turbo;  // Default: ChatGptModels.Gpt35Turbo
     options.MessageLimit = 16;  // Default: 10
     options.MessageExpiration = TimeSpan.FromMinutes(5);    // Default: 1 hour
